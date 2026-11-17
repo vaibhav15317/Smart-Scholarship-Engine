@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Scholarship Engine — Free desktop app</title>
+  <meta name="description" content="Download Smart Scholarship Engine, a free Windows desktop app that matches your student profile to scholarships, with deadlines and links to official portals.">
+  <meta property="og:title" content="Smart Scholarship Engine — Free desktop app">
+  <meta property="og:description" content="Download Smart Scholarship Engine, a free Windows desktop app that matches your student profile to scholarships, with deadlines and links to official portals.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        Smart Scholarship Engine
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav">☰</button>
+      <nav id="nav" class="nav">
+        <a href="#features">Features</a>
+        <a href="#preview">Try it</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Scholarship Finder for students</p>
+        <h1>Find the scholarships you qualify for.</h1>
+        <p class="lead">
+          Smart Scholarship Engine runs on your own computer. Fill in your profile once, and it lists the
+          schemes that fit, with the documents you need and links to the official portals.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-ghost" href="#preview">Try the matcher first</a>
+        </div>
+        <ul class="badges">
+          <li><strong>Free</strong><span>no sign-up needed</span></li>
+          <li><strong>Optimised</strong><span>best matches only for you</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+      <div class="container">
+        <h2 class="center">What are the features</h2>
+        <div class="feature-grid">
+          <article class="card">
+            <p class="card-label">Student profile</p>
+            <h3>Describe yourself once</h3>
+            <p>Education level, category, state, family income, achievements and the documents you already have.</p>
+          </article>
+          <article class="card">
+            <p class="card-label">Scholarship explorer</p>
+            <h3>Search and filter schemes</h3>
+            <p>Browse a starter list of Karnataka and central schemes, ranked by how well they match your profile.</p>
+          </article>
+          <article class="card">
+            <p class="card-label">My shortlist</p>
+            <h3>Save what looks promising</h3>
+            <p>Keep good options in one place while you check eligibility and application dates.</p>
+          </article>
+          <article class="card">
+            <p class="card-label">Official portals</p>
+            <h3>Go straight to the source</h3>
+            <p>Each scheme links to Karnataka SSP, the National Scholarship Portal or AICTE, so you can confirm the rules and apply.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live preview -->
+    <section class="section section-alt" id="preview">
+      <div class="container">
+        <p class="eyebrow center">Live preview</p>
+        <h2 class="center">See how matching works</h2>
+        <p class="section-sub center">A small browser version of the matcher, searching a live database of central and state schemes.</p>
+
+        <div class="preview-grid">
+          <form class="panel" id="matcher-form" novalidate>
+            <h3>Your profile</h3>
+
+            <label for="course">Course <span class="req">*</span></label>
+            <select id="course" required>
+              <option>Engineering</option>
+              <option>Medicine</option>
+              <option>Science</option>
+              <option>Commerce</option>
+              <option>Arts</option>
+            </select>
+
+            <label for="level">Education level <span class="req">*</span></label>
+            <select id="level" required>
+              <option value="Class 11-12">Class 11–12</option>
+              <option value="Diploma/ITI">Diploma / ITI</option>
+              <option value="UG" selected>Undergraduate (UG)</option>
+              <option value="PG">Postgraduate (PG)</option>
+              <option value="PhD">PhD</option>
+            </select>
+
+            <label for="category">Category <span class="req">*</span></label>
+            <select id="category" required>
+              <option>General</option>
+              <option>OBC</option>
+              <option>SC</option>
+              <option>ST</option>
+              <option>EWS</option>
+            </select>
+
+            <label for="marks">Marks (%)</label>
+            <input id="marks" type="number" min="0" max="100" step="0.1" value="80" inputmode="decimal">
+
+            <label for="income">Family income per year (₹)</label>
+            <input id="income" type="number" min="0" step="1000" value="500000" inputmode="numeric">
+
+            <label for="state">State <span class="req">*</span></label>
+            <select id="state" required>
+              <option>Karnataka</option>
+              <option>Maharashtra</option>
+              <option>Tamil Nadu</option>
+              <option>Delhi</option>
+              <option>Uttar Pradesh</option>
+              <option>Gujarat</option>
+              <option>West Bengal</option>
+              <option>Bihar</option>
+              <option>Madhya Pradesh</option>
+              <option>Telangana</option>
+              <option>Odisha</option>
+              <option>Other</option>
+            </select>
+
+            <label for="gender">Gender</label>
+            <select id="gender">
+              <option>Female</option>
+              <option>Male</option>
+              <option>Prefer not to say</option>
+            </select>
+
+            <label class="check"><input type="checkbox" id="disability"> Disability of 40% or more</label>
+            <label class="check"><input type="checkbox" id="minority"> Belong to a notified minority community</label>
+
+            <button type="submit" class="btn btn-primary btn-block">Find scholarships</button>
+          </form>
+
+          <div class="panel results-panel" aria-live="polite">
+            <h3 id="results-title">Your matches</h3>
+            <p class="muted" id="results-sub">Sorted by highest yearly amount.</p>
+            <div id="results"></div>
+            <p class="disclaimer">Matches are indicative only. Amounts, income limits and dates change every year, and some rules (such as caste or community certificates) cannot be checked here. Always confirm on the official portal before applying.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container center">
+        <h2>Ready to find your funding?</h2>
+        <p>Download the server</p>
+        <p> Windows · Python 3.10+</p>
+        <a class="btn btn-light btn-lg" href="https://github.com/vaibhav15317/Smart-Scholarship-Engine/tree/main/content/server">Download Server Package</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Smart Scholarship Engine · BMSIT Innovation &amp; Design Thinking</p>
+      <p>Wasim Akram Kabir · Saarans Singh · Vaibhav Kumar Singh · Yash Kumar · Kushagra Agarwal</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
